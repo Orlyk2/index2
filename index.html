@@ -7,7 +7,7 @@
 
   <!-- Facebook Preview -->
   <meta property="og:title" content="🐶 Accesorios premium para perros" />
-  <meta property="og:description" content="Ropa, juguetes y accesorios cómodos y modernos para tu mascota." />
+  <meta property="og:description" content="Ropa, juguetes y accesorios cómodos, modernos y funcionales para tu mascota." />
   <meta property="og:image" content="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/2.jpg" />
   <meta property="og:type" content="website" />
 
@@ -28,18 +28,33 @@
     header h1{font-size:42px;margin-bottom:15px}
     header p{font-size:20px;margin-bottom:25px}
 
+    /* BOTÓN PRINCIPAL */
     .cta{
       display:inline-block;
-      background:#111827;
+      background:linear-gradient(135deg,#111827,#1f2937);
       color:#fff;
-      padding:14px 36px;
-      border-radius:14px;
+      padding:14px 38px;
+      border-radius:999px;
       font-size:18px;
       font-weight:bold;
       text-decoration:none;
-      transition:.2s;
+      position:relative;
+      overflow:hidden;
+      transition:.3s;
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    .cta:hover{transform:scale(1.05)}
+
+    .cta::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);
+      transform:translateX(-100%);
+      transition:.5s;
+    }
+
+    .cta:hover::after{transform:translateX(100%)}
+    .cta:hover{transform:translateY(-4px) scale(1.03)}
 
     section{padding:80px 20px}
     .container{max-width:1200px;margin:auto}
@@ -47,22 +62,34 @@
     .grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:30px;
+      gap:35px;
     }
 
     .product-card{
-      border:1px solid #e5e7eb;
-      border-radius:18px;
+      border-radius:22px;
       overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,.05);
       background:#fff;
+      box-shadow:0 20px 40px rgba(0,0,0,.08);
+      transition:.35s;
+      position:relative;
     }
 
-    .media img{width:100%;display:block}
+    .product-card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 30px 60px rgba(0,0,0,.15);
+    }
 
-    .content{padding:20px}
+    .media img{
+      width:100%;
+      display:block;
+      transition:.5s;
+    }
+
+    .product-card:hover img{transform:scale(1.08)}
+
+    .content{padding:25px}
     .content h3{font-size:22px;margin-bottom:10px}
-    .content p{color:#4b5563;margin-bottom:15px}
+    .content p{color:#4b5563;margin-bottom:18px}
 
     footer{text-align:center;padding:40px;color:#6b7280;font-size:14px}
 
@@ -72,16 +99,23 @@
       right:20px;
       background:#25d366;
       color:#fff;
-      width:60px;
-      height:60px;
+      width:65px;
+      height:65px;
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:32px;
+      font-size:34px;
       text-decoration:none;
-      box-shadow:0 10px 25px rgba(0,0,0,.3);
+      box-shadow:0 15px 35px rgba(0,0,0,.35);
+      animation:pulse 2s infinite;
       z-index:1000;
+    }
+
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(37,211,102,.6)}
+      70%{box-shadow:0 0 0 20px rgba(37,211,102,0)}
+      100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
     }
   </style>
 </head>
@@ -90,10 +124,9 @@
 
 <header>
 
-  <!-- MENÚ DESPLEGABLE RESTAURADO -->
   <nav style="margin-bottom:30px">
     <select onchange="location = this.value"
-      style="padding:12px 16px;border-radius:10px;font-size:16px;border:none;max-width:320px">
+      style="padding:12px 16px;border-radius:12px;font-size:16px;border:none;max-width:320px">
       <option value="#">🐾 Elige un accesorio</option>
       <option value="chaleco-termico.html">Chaleco Térmico</option>
       <option value="sueter-casual.html">Suéter Casual</option>
@@ -102,87 +135,90 @@
     </select>
   </nav>
 
-  <h1>¿Amas a tu mascota?<br>Mira estos accesorios para tu canino 🐶</h1>
-  <p>Comodidad, estilo y amor para tu mejor amigo</p>
-  <a href="https://wa.me/573136299375" class="cta">Hablar por WhatsApp</a>
+  <h1>Estilo, protección y amor<br>para tu mejor amigo 🐶</h1>
+  <p>Accesorios diseñados para comodidad real y miradas de admiración</p>
+  <a href="https://wa.me/573136299375" class="cta">Comprar por WhatsApp</a>
 </header>
 
 <section>
   <div class="container grid">
 
-    <!-- CHALECO ROJO -->
+    <!-- PRODUCTO 1 -->
     <div class="product-card">
       <div class="media">
-        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/2.jpg" alt="Chaleco rojo para perro">
+        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/2.jpg">
       </div>
       <div class="content">
-        <h3>Overol con camisilla </h3>
-        <p> Ideal para perros con mucho estilo.</p>
-        <a href="https://wa.me/573136299375?text=Hola,%20quiero%20el%20chaleco%20térmico%20rojo%20para%20perro" class="cta">
-          Solicitar por WhatsApp
-        </a>
+        <h3>Overol con camisilla 🧥</h3>
+        <p>
+          Protección ligera y ajuste cómodo para paseos diarios.
+          Ideal para mantener a tu perro limpio, abrigado y con un estilo moderno.
+        </p>
+        <a class="cta" href="https://wa.me/573136299375">Pedir ahora</a>
       </div>
     </div>
 
-    <!-- ROPA PREMIUM -->
+    <!-- PRODUCTO 2 -->
     <div class="product-card">
       <div class="media">
-        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/3.jpg" alt="Ropa premium para perro">
+        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/3.jpg">
       </div>
       <div class="content">
-        <h3>Accesorios</h3>
-        <p>Diseño moderno y elegante. Perfecta para paseos y uso diario.</p>
-        <a href="https://wa.me/573136299375?text=Hola,%20quiero%20la%20ropa%20premium%20para%20perro" class="cta">
-          Solicitar por WhatsApp
-        </a>
+        <h3>Ropa Premium Canina ✨</h3>
+        <p>
+          Diseño elegante con telas suaves y resistentes.
+          Perfecta para perros que merecen comodidad sin perder estilo.
+        </p>
+        <a class="cta" href="https://wa.me/573136299375">Quiero este</a>
       </div>
     </div>
 
-    <!-- JUGUETE -->
+    <!-- PRODUCTO 3 -->
     <div class="product-card">
       <div class="media">
-        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/34.jpg" alt="Juguete para perro">
+        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/34.jpg">
       </div>
       <div class="content">
-        <h3>Trajes especiales Entrenamiento </h3>
-        <p>Ideal para entretenimiento diario. Elegancia para tu mascota</p>
-        <a href="https://wa.me/573136299375?text=Hola,%20quiero%20el%20juguete%20para%20perros" class="cta">
-          Solicitar por WhatsApp
-        </a>
+        <h3>Trajes de Entrenamiento 🐕</h3>
+        <p>
+          Diseñados para actividades, paseos largos y entrenamiento.
+          Resistencia, movilidad y presencia profesional.
+        </p>
+        <a class="cta" href="https://wa.me/573136299375">Consultar</a>
       </div>
     </div>
 
-    <!-- ACCESORIO -->
+    <!-- PRODUCTO 4 -->
     <div class="product-card">
       <div class="media">
-        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/cc.jpg" alt="Accesorio canino">
+        <img src="https://raw.githubusercontent.com/Orlyk2/index2/146e601a94ed123d2892c99253ea2ca82b087068/cc.jpg">
       </div>
       <div class="content">
-        <h3>Moda Ovejera</h3>
-        <p>Especiales para condicones muy frias.</p>
-        <a href="https://wa.me/573136299375?text=Hola,%20quiero%20el%20accesorio%20para%20perro" class="cta">
-          Solicitar por WhatsApp
-        </a>
+        <h3>Moda Ovejera ❄️</h3>
+        <p>
+          Máxima protección contra el frío extremo.
+          Ideal para climas bajos y razas sensibles a bajas temperaturas.
+        </p>
+        <a class="cta" href="https://wa.me/573136299375">Ver disponibilidad</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- FUNDACIÓN -->
 <section style="background:#ecfdf5">
   <div class="container" style="text-align:center">
     <h2>💚 Compras con propósito</h2>
     <p style="max-width:800px;margin:20px auto">
-      Por cada compra apoyas a la <strong>Fundación Maskoticas</strong>,
-      dedicada al rescate y protección de perros abandonados.
+      Cada compra apoya a la <strong>Fundación Maskoticas</strong>,
+      ayudando al rescate y protección de perros abandonados.
     </p>
-    <p>Juntos salvamos vidas 🐾</p>
+    <p>Comprar aquí también salva vidas 🐾</p>
   </div>
 </section>
 
 <footer>
-  © 2026 · Moda Canina · Amor y estilo para tu mascota
+  © 2026 · Moda Canina · Donde el amor se viste
 </footer>
 
 <a href="https://wa.me/573136299375" class="whatsapp-float">☎</a>
